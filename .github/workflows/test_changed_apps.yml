@@ -3,7 +3,7 @@ name: Matrix Example
 on:
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   job1:
