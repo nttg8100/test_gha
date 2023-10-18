@@ -8,19 +8,21 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set_output.outputs.matrix }}
     steps:
       - name: Set Output
         id: set_output
         run: |
-          echo Something job1
+          echo "{apps}={value1,value2,value3}" >> $GITHUB_STATE
   job2:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
       matrix: 
-        apps: ["none"]
+        param2: ${{ fromJson(needs.job1.outputs.matrix) }}
     steps:
       - name: Print Matrix
         run: |
-          echo Something job2
+          echo "Matrix values: ${{ matrix.param2 }}"
