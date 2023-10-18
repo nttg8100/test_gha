@@ -1,0 +1,22 @@
+name: Indirect Matrix Example
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Output
+        id: set_output
+        run: |
+          echo Something job1
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Matrix
+        run: |
+          echo Something job2
