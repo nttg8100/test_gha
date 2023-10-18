@@ -22,4 +22,5 @@ jobs:
         param2: ${{ fromJson(needs.job1.outputs.matrix) }}
     steps:
       - name: Print Matrix
-        run: echo "Matrix values: ${{ matrix.param2 }}"
+        run: |
+          echo "Matrix values: ${{ matrix.param2 }}"
