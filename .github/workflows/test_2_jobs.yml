@@ -25,7 +25,7 @@ jobs:
     - name: Set matrix
       id: set-matrix
       run: |
-        space_separated=${{steps.changed-files.outputs.all_changed_files}}
+        space_separated="${{steps.changed-files.outputs.all_changed_files}}"
         matrix="[\"$(echo $space_separated | sed 's/ /","/g')\"]"
         echo "::set-output name=matrix::$matrix"
   job2:
