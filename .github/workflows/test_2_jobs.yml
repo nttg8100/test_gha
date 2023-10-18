@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix: 
-        param2: ${{ fromJson(needs.job1.outputs.matrix) }}
+        param2: ${{ needs.job1.outputs.matrix }}
     steps:
       - name: Print Matrix
         run: |
