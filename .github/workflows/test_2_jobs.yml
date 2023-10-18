@@ -14,7 +14,7 @@ jobs:
       - name: Set Output
         id: set_output
         run: |
-          echo "matrix=value1,value2,value3" >> "$GITHUB_OUTPUT"
+          echo "matrix=['value1','value2','value3'" >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
     needs: job1
