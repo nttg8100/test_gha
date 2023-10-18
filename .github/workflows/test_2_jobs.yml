@@ -24,7 +24,6 @@ jobs:
     steps:
       - name: Print Matrix
         run: |
-          # echo "Matrix values: ${{ (needs.job1.outputs.matrix }}"
           echo hihi
 
 
