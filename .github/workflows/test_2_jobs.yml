@@ -27,7 +27,7 @@ jobs:
       run: |
         space_separated="${{steps.changed-files.outputs.all_changed_files}}"
         matrix="[\"$(echo $space_separated | sed 's/ /","/g')\"]"
-        echo "::set-output name=matrix::$matrix"
+        echo "matrix=$matrix" >> $GITHUB_OUTPUT
   job2:
     runs-on: ubuntu-latest
     needs: job1
@@ -38,5 +38,3 @@ jobs:
       - name: Print Matrix
         run: |
           echo ${{ matrix.param2}}
-
-
