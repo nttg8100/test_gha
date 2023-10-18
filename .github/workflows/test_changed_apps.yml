@@ -3,7 +3,7 @@ name: Indirect Matrix Example
 on:
   push:
     branches:
-      - dev
+      - main
 
 jobs:
   job1:

@@ -14,7 +14,7 @@ jobs:
       - name: Set Output
         id: set_output
         run: |
-          echo "{apps}={value1,value2,value3}" >> $GITHUB_STATE
+          echo "{matrix}={value1,value2,value3}" >> $GITHUB_STATE
   job2:
     needs: job1
     runs-on: ubuntu-latest
