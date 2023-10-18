@@ -1,4 +1,4 @@
-name: Matrix Example
+name: Indirect Matrix Example
 
 on:
   push:
@@ -8,23 +8,18 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        param1: [value1, value2, value3]
+    outputs:
+      matrix: ${{ steps.set_output.outputs.matrix }}
     steps:
       - name: Set Output
         id: set_output
         run: echo "::set-output name=matrix::value1,value2,value3"
-      - name: Print Matrix
-        run: |
-          echo "Matrix values: ${{ matrix.param1 }}"
   job2:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        param2: ${{ job1.matrix.param1 }}
+        param2: ${{ fromJson(needs.job1.outputs.matrix) }}
     steps:
       - name: Print Matrix
-        run: |
-          echo "Matrix values: ${{ matrix.param2 }}"
+        run: echo "Matrix values: ${{ matrix.param2 }}"
