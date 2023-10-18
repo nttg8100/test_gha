@@ -23,7 +23,7 @@ jobs:
     - name: Set matrix
       id: set-matrix
       run: |
-         echo "matrix=${{steps.changed-files.outputs.all_changed_files}}" >> "$GITHUB_OUTPUT"
+         echo "matrix=[${{steps.changed-files.outputs.all_changed_files}}]" >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
     needs: job1
