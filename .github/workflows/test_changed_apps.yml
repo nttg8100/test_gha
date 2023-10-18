@@ -13,7 +13,8 @@ jobs:
     steps:
       - name: Set Output
         id: set_output
-        run: echo "::set-output name=matrix::value1,value2,value3"
+        run: |
+          echo "{name}={value1,value2,value3}" >> $GITHUB_STATE
   job2:
     needs: job1
     runs-on: ubuntu-latest
