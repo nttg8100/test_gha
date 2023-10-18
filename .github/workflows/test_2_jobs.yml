@@ -16,6 +16,10 @@ jobs:
   job2:
     needs: job1
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix: 
+        apps: ["none"]
     steps:
       - name: Print Matrix
         run: |
