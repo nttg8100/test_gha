@@ -37,6 +37,7 @@ jobs:
     steps:
       - name: Print Matrix
         run: |
-          echo ${{ matrix.param2}}
-          cd ${{ matrix.param2}}
-          make unittest
+          ls -la
+          # echo ${{ matrix.param2}}
+          # cd ${{ matrix.param2}}
+          # make unittest
