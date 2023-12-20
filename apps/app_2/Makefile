@@ -1,2 +1,2 @@
 unittest:
-	echo "Something it will be passedsds"
+	echo "Something it will be passed"
