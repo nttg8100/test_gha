@@ -35,9 +35,12 @@ jobs:
       matrix:
         param2: ${{fromJSON(needs.job1.outputs.matrix)}}
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
       - name: Print Matrix
         run: |
-          ls -la
-          # echo ${{ matrix.param2}}
-          # cd ${{ matrix.param2}}
-          # make unittest
+          echo ${{ matrix.param2}}
+          cd ${{ matrix.param2}}
+          make unittest
